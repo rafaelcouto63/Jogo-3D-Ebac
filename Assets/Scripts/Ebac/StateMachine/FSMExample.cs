@@ -1,12 +1,10 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-
-
-
+using Ebac.StateMachine;
 public class FSMExample : MonoBehaviour
 {
-    public enum ExempleEnum
+    public enum ExampleEnum
     {
         STATE_ONE,
         STATE_TWO,
@@ -14,13 +12,14 @@ public class FSMExample : MonoBehaviour
     }
 
 
-    public StateMachine<ExempleEnum> stateMachine;
+    public StateMachine<ExampleEnum> stateMachine;
 
-    public void Start()
+    private void Start()
     {
-        stateMachine = new StateMachine<ExempleEnum>();
+        stateMachine = new StateMachine<ExampleEnum>();
         stateMachine.Init();
-        stateMachine.RegisterStates(ExempleEnum.STATE_ONE, new StateBase());
-        stateMachine.RegisterStates(ExempleEnum.STATE_TWO, new StateBase());
+        stateMachine.RegisterStates(ExampleEnum.STATE_ONE, new StateBase());
+        stateMachine.RegisterStates(ExampleEnum.STATE_TWO, new StateBase());
     }
 }
+

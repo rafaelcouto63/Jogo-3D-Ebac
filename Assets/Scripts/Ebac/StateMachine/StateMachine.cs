@@ -3,22 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using System;
 
-/*public class Test
+namespace Ebac.StateMachine
 {
-    public enum Test2
-    {
-        NOME
-    }
-
-    public void Aa()
-    {
-        StateMachine<Test2> stateMachine = new StateMachine<Test2>();
-
-        stateMachine.RegisterStates(Test.Test2.NOME, new StateBase());
-    }
-}*/
-public class StateMachine<T> where T: System.Enum
-{
+ public class StateMachine<T> where T: System.Enum
+ {
     public Dictionary<T, StateBase> dictionaryState;
 
     private StateBase _currentState;
@@ -57,4 +45,5 @@ public class StateMachine<T> where T: System.Enum
             _currentState.OnStateStay();
         }
     }
+ }
 }

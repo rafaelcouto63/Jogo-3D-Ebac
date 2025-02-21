@@ -8,6 +8,11 @@ public class Player3D : MonoBehaviour
     public float turnSpeed = 1f;    
     public float gravity = 9.8f;    
     private float vSpeed = 0f;    
+
+    public float jumpSpeed = 15f;
+
+    public KeyCode jumpKeyCode = KeyCode.Space;
+
     void Update()    
     {        
         transform.Rotate(0, Input.GetAxis("Horizontal") * turnSpeed * Time.deltaTime, 0); 
@@ -15,12 +20,21 @@ public class Player3D : MonoBehaviour
         var inputAxisVertical = Input.GetAxis("Vertical");        
         var speedVector = transform.forward * inputAxisVertical * speed; 
 
+        if(characterController.isGrounded)        
+        {            
+            vSpeed = 0;            
+            if(Input.GetKeyDown(jumpKeyCode))            
+            {                
+                vSpeed = jumpSpeed;            
+            }        
+        }     
+
         vSpeed  -= gravity * Time.deltaTime;        
         speedVector.y = vSpeed;        
 
         characterController.Move(speedVector * Time.deltaTime);
 
-        animator.SetBool("Run", inputAxisVertical != 0);
+        animator.SetBool("Run", inputAxisVertical != 0);     
 
     }
 }

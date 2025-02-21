@@ -4975,6 +4975,8 @@ MonoBehaviour:
   speed: 10
   turnSpeed: 200
   gravity: 9.8
+  jumpSpeed: 15
+  jumpKeyCode: 32
 --- !u!4 &951866242
 Transform:
   m_ObjectHideFlags: 0

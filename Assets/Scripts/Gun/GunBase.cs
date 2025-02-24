@@ -16,22 +16,8 @@ public class GunBase : MonoBehaviour
         GameObject player = GameObject.FindGameObjectWithTag("Player");
     }
         
-    void Update()
-    {
-        if(Input.GetKeyDown(keyCode)) 
-        {
-            _currentCoroutine = StartCoroutine(StartShoot());
-        }
-        else if (Input.GetKeyUp(keyCode)) 
-        {
-            if(_currentCoroutine !!= null) 
-            {
-                StopCoroutine(_currentCoroutine);
-            }
-        }
-    }
 
-    IEnumerator StartShoot()
+    IEnumerator ShootCoroutione()
     {
        while(true) 
        {
@@ -45,5 +31,19 @@ public class GunBase : MonoBehaviour
         var projectile = Instantiate(prefabProjectile); 
         projectile.transform.position = positionShoot.position;
         projectile.transform.rotation = positionShoot.rotation;
+    }
+
+    public void StartShoot()
+    {
+       StopShoot();
+       _currentCoroutine = StartCoroutine(ShootCoroutione());
+    }
+
+    public void StopShoot()
+    {
+         if(_currentCoroutine !!= null) 
+            {
+                StopCoroutine(_currentCoroutine);
+            }
     }
 }

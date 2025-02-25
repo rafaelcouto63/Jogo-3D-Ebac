@@ -17,7 +17,7 @@ public class GunBase : MonoBehaviour
     }
         
 
-    IEnumerator ShootCoroutione()
+    protected virtual IEnumerator ShootCoroutine()
     {
        while(true) 
        {
@@ -26,7 +26,7 @@ public class GunBase : MonoBehaviour
        }
     
     }
-    private void Shoot()
+    public void Shoot()
     {
         var projectile = Instantiate(prefabProjectile); 
         projectile.transform.position = positionShoot.position;
@@ -36,7 +36,7 @@ public class GunBase : MonoBehaviour
     public void StartShoot()
     {
        StopShoot();
-       _currentCoroutine = StartCoroutine(ShootCoroutione());
+       _currentCoroutine = StartCoroutine(ShootCoroutine());
     }
 
     public void StopShoot()

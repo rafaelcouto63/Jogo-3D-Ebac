@@ -8,7 +8,7 @@ public class GunBase : MonoBehaviour
     public Transform positionShoot;
     public float timeBetweenShoot = 0.3f;
     private Coroutine _currentCoroutine;
-    public KeyCode keyCode = KeyCode.S;
+    public float speed = 50f;
     
     
      private void Start()
@@ -26,11 +26,12 @@ public class GunBase : MonoBehaviour
        }
     
     }
-    public void Shoot()
+    public virtual void Shoot()
     {
         var projectile = Instantiate(prefabProjectile); 
         projectile.transform.position = positionShoot.position;
         projectile.transform.rotation = positionShoot.rotation;
+        projectile.speed = speed;
     }
 
     public void StartShoot()

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5201623659155250416}
   m_Layer: 0
   m_Name: PFB_Gun_Angle
-  m_TagString: Untagged
+  m_TagString: Gun2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -104,6 +104,7 @@ MonoBehaviour:
   positionShoot: {fileID: 635543212175452697}
   timeBetweenShoot: 0.3
   speed: 50
+  uIGunUpdater: []
   maxShoot: 5
   timeToCharge: 1
   amountPerShoot: 4

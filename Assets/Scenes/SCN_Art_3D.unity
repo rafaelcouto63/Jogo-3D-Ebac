@@ -2474,6 +2474,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   collider: {fileID: 451171265}
+  flashColor: {fileID: 1173141053}
   startLife: 10
   _currentLife: 0
   _animationBase: {fileID: 451171266}
@@ -2489,7 +2490,7 @@ Transform:
   m_GameObject: {fileID: 451171262}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 425.6, y: -4.5, z: 69.39}
+  m_LocalPosition: {x: 425.6, y: -6.93, z: 69.39}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2515,8 +2516,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 3.3470154, y: 4.029135, z: 3.6593246}
-  m_Center: {x: 1.8154144, y: 1.7798812, z: -4.2997627}
+  m_Size: {x: 4.384674, y: 4.029135, z: 4.7294235}
+  m_Center: {x: 1.0489044, y: 1.7798812, z: -1.7872963}
 --- !u!114 &451171266
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4600,7 +4601,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8929186499503660615, guid: 86dc2d7519f0fa047a4a9adbc81a8da7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1173141053}
   m_SourcePrefab: {fileID: 100100000, guid: 86dc2d7519f0fa047a4a9adbc81a8da7, type: 3}
 --- !u!1 &852109489
 GameObject:
@@ -6658,6 +6662,31 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8043139984699745673, guid: 6a85956ddea0a304da62a369edd2c2fa, type: 3}
   m_PrefabInstance: {fileID: 1167757094}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1173141050 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8929186499503660615, guid: 86dc2d7519f0fa047a4a9adbc81a8da7, type: 3}
+  m_PrefabInstance: {fileID: 849697598}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &1173141051 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 6983442274928476050, guid: 86dc2d7519f0fa047a4a9adbc81a8da7, type: 3}
+  m_PrefabInstance: {fileID: 849697598}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1173141053
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1173141050}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c428185606a7dc4d80d442f260096c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 1173141051}
+  color: {r: 1, g: 0, b: 0, a: 1}
+  duration: 0.1
 --- !u!1 &1177411885
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,6 +1,8 @@
 using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
 
-public class Player3D : MonoBehaviour
+public class Player3D : MonoBehaviour, IDamageable
 {
     public Animator animator;
     public CharacterController characterController;
@@ -16,6 +18,21 @@ public class Player3D : MonoBehaviour
     [Header("Run Setup")]    
      public KeyCode keyRun = KeyCode.LeftShift;    
      public float speedRun = 1.5f;
+
+    [Header("Flash")]
+    public List<FlashColor> flashColors;
+    
+    #region LIFE
+    public void Damage(float damage)
+    {
+        flashColors.ForEach(i => i.Flash());
+    }
+
+    public void Damage(float damage, Vector3 dir)
+    {
+        Damage(damage);
+    }
+    #endregion
 
     void Update()    
     {        

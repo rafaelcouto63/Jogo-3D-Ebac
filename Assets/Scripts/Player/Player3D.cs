@@ -4,6 +4,7 @@ using System.Collections.Generic;
 
 public class Player3D : MonoBehaviour//, IDamageable
 {
+    public List<Collider> colliders;
     public Animator animator;
     public CharacterController characterController;
     public float speed = 1f;    
@@ -22,7 +23,10 @@ public class Player3D : MonoBehaviour//, IDamageable
     [Header("Flash")]
     public List<FlashColor> flashColors;
 
+    [Header("Life")]
     public HealthBase healthBase;
+    public UIFillUpdater uIGunUpdater;
+    private bool _alive = true;
 
     private void OnValidate() 
     {
@@ -34,9 +38,20 @@ public class Player3D : MonoBehaviour//, IDamageable
         OnValidate();
 
         healthBase.OnDamage += Damage;
+        healthBase.OnKill += OnKill;
     }
+
     
     #region LIFE
+    private void OnKill (HealthBase h) 
+    {
+        if(_alive) 
+        {
+            _alive = false;
+            animator.SetTrigger("Death");
+            colliders.ForEach(i => i.enabled = false);
+        }
+    }
     public void Damage(HealthBase h)
     {
         flashColors.ForEach(i => i.Flash());

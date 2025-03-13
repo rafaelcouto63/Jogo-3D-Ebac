@@ -2,7 +2,7 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
-public class Player3D : MonoBehaviour, IDamageable
+public class Player3D : MonoBehaviour//, IDamageable
 {
     public Animator animator;
     public CharacterController characterController;
@@ -21,16 +21,30 @@ public class Player3D : MonoBehaviour, IDamageable
 
     [Header("Flash")]
     public List<FlashColor> flashColors;
+
+    public HealthBase healthBase;
+
+    private void OnValidate() 
+    {
+        if(healthBase == null) healthBase = GetComponent<HealthBase>();
+    }
+
+    private void Awake() 
+    {
+        OnValidate();
+
+        healthBase.OnDamage += Damage;
+    }
     
     #region LIFE
-    public void Damage(float damage)
+    public void Damage(HealthBase h)
     {
         flashColors.ForEach(i => i.Flash());
     }
 
     public void Damage(float damage, Vector3 dir)
     {
-        Damage(damage);
+        //Damage(damage);
     }
     #endregion
 
@@ -70,6 +84,5 @@ public class Player3D : MonoBehaviour, IDamageable
         characterController.Move(speedVector * Time.deltaTime);
 
         animator.SetBool("Run", inputAxisVertical != 0);     
-
     }
 }

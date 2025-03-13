@@ -3,10 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using System;
 
-public class HealthBase : MonoBehaviour
+public class HealthBase : MonoBehaviour, IDamageable
 {
     public float startLife = 10f;
     public bool destroyOnKill = false;
+    public float timeToDestroy = 3f;
     [SerializeField]private float _currentLife;
 
     public Action<HealthBase> OnDamage;
@@ -31,17 +32,19 @@ public class HealthBase : MonoBehaviour
     {
         if(destroyOnKill == true) 
         {
-         Destroy(gameObject, 3f);    
+         Destroy(gameObject, timeToDestroy);    
         }
 
         OnKill?.Invoke(this);
     }
-
+    
+    #region DEBUG
     [NaughtyAttributes.Button] 
     public void Damage () 
     {
         Damage(5);
     }
+    #endregion
 
     public void Damage(float f)
     {
@@ -53,5 +56,10 @@ public class HealthBase : MonoBehaviour
         }
 
         OnDamage?.Invoke(this);
+    }
+
+    public void Damage(float damage, Vector3 dir)
+    {
+        Damage(damage);
     }
 }

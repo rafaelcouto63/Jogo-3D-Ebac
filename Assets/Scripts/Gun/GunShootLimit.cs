@@ -69,6 +69,6 @@ public class GunShootLimit : GunBase
 
     private void GetAllUIs()
     {
-        uIGunUpdater = GameObject.FindObjectsOfType<UIFillUpdater>().ToList();
+        uIGunUpdater = GameObject.FindObjectsOfType<UIFillUpdater>().Where(ui => ui.updateType == UIFillUpdateType.Ammo).ToList();
     }
 }

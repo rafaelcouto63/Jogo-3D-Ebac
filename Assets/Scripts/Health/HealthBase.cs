@@ -12,7 +12,7 @@ public class HealthBase : MonoBehaviour, IDamageable
 
     public Action<HealthBase> OnDamage;
     public Action<HealthBase> OnKill;
-    public List<UIFillUpdater> uIGunUpdater;
+    public List<UIFillUpdater> uIFillUpdater;
 
     private void Awake()
     {
@@ -67,9 +67,9 @@ public class HealthBase : MonoBehaviour, IDamageable
 
     private void UpdateUI()
     {
-        if(uIGunUpdater != null) 
+        if(uIFillUpdater != null) 
         {
-            uIGunUpdater.ForEach(i => i.UpdateValue((float) _currentLife/startLife));
+            uIFillUpdater.ForEach(i => i.UpdateValue((float) _currentLife/startLife));
         }
     }
 }

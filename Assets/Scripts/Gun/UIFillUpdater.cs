@@ -4,8 +4,15 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.InputSystem;
 using DG.Tweening;
+
+public enum UIFillUpdateType
+{
+    Health,
+    Ammo
+}
 public class UIFillUpdater : MonoBehaviour
 {
+    public UIFillUpdateType updateType = UIFillUpdateType.Health;
     public Image uiImage;
 
     [Header("Animation")]

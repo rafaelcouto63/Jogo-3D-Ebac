@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Itens
+namespace Items
 {
 public class CollectableBase : MonoBehaviour
 {

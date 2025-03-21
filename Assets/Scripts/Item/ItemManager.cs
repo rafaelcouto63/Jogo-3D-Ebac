@@ -5,7 +5,7 @@ using UnityEngine;
 using TMPro;
 using Ebac.Singleton;
 
-namespace Itens
+namespace Items
 {
  public enum ItemType
  {
@@ -14,7 +14,7 @@ namespace Itens
  }
  public class ItemManager : Singleton<ItemManager>
  {
-    public List<ItenSetup> itenSetups;
+    public List<ItemSetup> itemSetups;
 
     private void Start()
     {
@@ -23,7 +23,7 @@ namespace Itens
 
     private void Reset()
     {
-        foreach(var i in itenSetups) 
+        foreach(var i in itemSetups) 
         {
            i.soInt.value = 0; 
         }
@@ -34,19 +34,19 @@ namespace Itens
     {
         if(amount < 0) return;
 
-        itenSetups.Find(i => i.itemType == itemType).soInt.value += amount;
+        itemSetups.Find(i => i.itemType == itemType).soInt.value += amount;
     }
 
     public void RemoveByType(ItemType itemType, int amount = 1)
     {
         if(amount > 0) return;
-        
-        var iten = itenSetups.Find(i => i.itemType == itemType);
-        iten.soInt.value -= amount;
 
-        if(iten.soInt.value < 0) 
+        var item = itemSetups.Find(i => i.itemType == itemType);
+        item.soInt.value -= amount;
+
+        if(item.soInt.value < 0) 
         {
-            iten.soInt.value = 0;
+            item.soInt.value = 0;
         }
     }
     
@@ -63,10 +63,11 @@ namespace Itens
     }
     
     [System.Serializable]
-    public class ItenSetup
+    public class ItemSetup
     {
         public ItemType itemType;
         public SOint soInt;
+        public Sprite icon;
     }
  }
 }

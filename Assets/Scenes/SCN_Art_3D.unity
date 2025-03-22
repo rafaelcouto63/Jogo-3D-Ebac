@@ -16284,7 +16284,7 @@ PrefabInstance:
     - target: {fileID: 8285947829320483783, guid: cfc87cd93d9b52943a8daadf30fe688b, type: 3}
       propertyPath: itemSetups.Array.data[1].icon
       value: 
-      objectReference: {fileID: 21300000, guid: e2456b5350726e24fb4a4e27f0fbb058, type: 3}
+      objectReference: {fileID: 21300000, guid: 98b97306ee990af428d4eb3bdfa304a7, type: 3}
     - target: {fileID: 8285947829320483783, guid: cfc87cd93d9b52943a8daadf30fe688b, type: 3}
       propertyPath: itemSetups.Array.data[0].soInt
       value: 

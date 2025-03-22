@@ -1,8 +1,9 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using Ebac.Singleton;
 
-public class Player3D : MonoBehaviour//, IDamageable
+public class Player3D : Singleton<Player3D>//, IDamageable
 {
     public List<Collider> colliders;
     public Animator animator;
@@ -33,14 +34,14 @@ public class Player3D : MonoBehaviour//, IDamageable
         if(healthBase == null) healthBase = GetComponent<HealthBase>();
     }
 
-    private void Awake() 
+    protected override void Awake()
     {
+        base.Awake();
         OnValidate();
 
         healthBase.OnDamage += Damage;
         healthBase.OnKill += OnKill;
     }
-
     
     #region LIFE
     private void OnKill (HealthBase h) 

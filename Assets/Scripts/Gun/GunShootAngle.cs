@@ -22,6 +22,8 @@ public class GunShootAngle : GunShootLimit
 
         projectile.speed = speed;
         projectile.transform.parent = null;
+
+        ShakeCamera.Instance.ShakeCam();
       }
    }
 }

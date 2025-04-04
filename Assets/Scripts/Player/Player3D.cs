@@ -128,4 +128,17 @@ public class Player3D : Singleton<Player3D>//, IDamageable
             transform.position = CheckpointManager.Instance.GetPositionLastCheckpoint();
         }
     }
+
+    public void ChangeSpeed (float speed, float duration) 
+    {
+        StartCoroutine(ChangeSpeedCoroutine(speed, duration));
+    }
+
+    IEnumerator ChangeSpeedCoroutine(float localspeed, float duration)
+    {
+        var defaultSpeed = speed;
+        speed = localspeed;
+        yield return new WaitForSeconds(duration);
+        speed = defaultSpeed;
+    }
 }

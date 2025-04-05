@@ -23,7 +23,7 @@ namespace Cloth
     public class ClothSetup
     {
        public ClothType clothType;
-       public Texture2D text;
+       public Texture2D texture;
     }
     
 }

@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using Ebac.Singleton;
+using Cloth;
 
 public class Player3D : Singleton<Player3D>//, IDamageable
 {
@@ -28,6 +29,9 @@ public class Player3D : Singleton<Player3D>//, IDamageable
     public HealthBase healthBase;
     public UIFillUpdater uIGunUpdater;
     private bool _alive = true;
+
+    [Space]
+    [SerializeField] private ClothChange clothChange;
 
     private void OnValidate() 
     {
@@ -140,5 +144,17 @@ public class Player3D : Singleton<Player3D>//, IDamageable
         speed = localspeed;
         yield return new WaitForSeconds(duration);
         speed = defaultSpeed;
+    }
+
+    public void ChangeTexture(ClothSetup setup, float duration)
+    {
+        StartCoroutine(ChangeTextureCoroutine(setup, duration));
+    }
+
+    IEnumerator ChangeTextureCoroutine(ClothSetup setup, float duration)
+    {
+        clothChange.ChangeTexture(setup);
+        yield return new WaitForSeconds(duration);
+        clothChange.ResetTexture();
     }
 }

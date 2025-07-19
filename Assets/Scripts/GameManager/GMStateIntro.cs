@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-using Ebac.StateMachine;
+using StateMachine;
 
 public class GMStateIntro : StateBase
 {

@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System;
 
-namespace Ebac.StateMachine
+namespace StateMachine
 {
  public class StateMachine<T> where T: System.Enum
  {

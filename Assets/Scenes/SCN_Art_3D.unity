@@ -12021,7 +12021,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clothType: 0
-  duration: 2
+  duration: 10
   compareTag: Player
   targetSpeed: 20
 --- !u!1001 &1583866729
@@ -14836,7 +14836,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clothType: 1
-  duration: 2
+  duration: 10
   compareTag: Player
   damageMultiply: 0.5
 --- !u!4 &1965211119
